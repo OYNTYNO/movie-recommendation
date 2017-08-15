@@ -1,0 +1,19 @@
+{% if latest_movie_list %}
+<h1>Movies List</h1>
+<table border=1>
+	<tbody>
+		<tr>
+			<th>Movile</th>
+			<th>Release Date</th>
+		</tr>
+		{% for movie in latest_movie_list %}
+		<tr>
+			<td><a href="{% url 'movies:detail' movie.id %}">{{ movie.title }}</a></td>
+			<td>{{ movie.release_date}}</td>
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+{% else %}
+	<p>There is no current movie to review.</p>
+{% endif %}
